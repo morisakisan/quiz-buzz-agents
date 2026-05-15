@@ -6,7 +6,7 @@
       "Read(**/GoogleService-Info.plist)",
       "Read(**/google-services.json)",
       "Bash(gh pr merge*)",
-      "Bash(gh api *merge*)",
+      "Bash(gh api *pulls/*/merge*)",
       "Bash(curl *merge*)"
     ]
   },
