@@ -28,6 +28,10 @@ GH_TOKEN=$TOKEN gh pr create --title "feat: xxx" --body "..."
 git config --unset credential.helper
 ```
 
+- PR 作成後、squash merge を人間に委ねる前に必ず以下の公式 Skill を実行する:
+  - `/security-review` — 機密漏洩、認証バイパス、OWASP top 10 等のチェック
+  - `/review` — 一般的なコードレビュー
+- 両 Skill の結果を確認し、Critical / High の指摘があれば修正コミットを当該ブランチに push してから人間にマージを委ねる
 - PR マージは絶対にしない（人間のみ）
 
 ## Notion MCP の活用
