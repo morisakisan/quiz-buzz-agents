@@ -5,9 +5,33 @@
       "Read(.env.*)",
       "Read(**/GoogleService-Info.plist)",
       "Read(**/google-services.json)",
+
+      "Read(~/.ssh/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.azure/**)",
+      "Read(~/.kube/**)",
+      "Read(~/.npmrc)",
+      "Read(~/.git-credentials)",
+      "Read(~/.config/gh/**)",
+      "Edit(~/.bashrc)",
+      "Edit(~/.zshrc)",
+      "Edit(~/.zprofile)",
+
       "Bash(gh pr merge*)",
       "Bash(gh api *pulls/*/merge*)",
-      "Bash(curl *merge*)"
+
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(nc *)",
+
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+
+      "Bash(find * -delete *)",
+      "Bash(*rm -rf *)"
     ]
   },
   "sandbox": {
