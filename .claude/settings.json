@@ -1,5 +1,20 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm test *)",
+      "Bash(npx prettier *)",
+      "Bash(npx eslint *)",
+      "Bash(flutter *)",
+      "Bash(dart *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git commit *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(grep *)"
+    ],
     "deny": [
       "Read(*.env)",
       "Read(.env.*)",
@@ -16,7 +31,6 @@
       "Read(~/.config/gh/**)",
       "Edit(~/.bashrc)",
       "Edit(~/.zshrc)",
-      "Edit(~/.zprofile)",
 
       "Bash(gh pr merge*)",
       "Bash(gh api *pulls/*/merge*)",
@@ -24,6 +38,7 @@
       "Bash(curl *)",
       "Bash(wget *)",
       "Bash(nc *)",
+      "Bash(ssh *)",
 
       "Bash(git push --force*)",
       "Bash(git push -f *)",
@@ -34,6 +49,7 @@
       "Bash(*rm -rf *)"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "sandbox": {
     "filesystem": {
       "denyRead": [
