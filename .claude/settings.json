@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(*.env)",
+      "Read(.env.*)",
+      "Read(**/GoogleService-Info.plist)",
+      "Read(**/google-services.json)",
+      "Bash(gh pr merge*)",
+      "Bash(gh api *merge*)",
+      "Bash(curl *merge*)"
+    ]
+  },
+  "sandbox": {
+    "filesystem": {
+      "denyRead": [
+        "./**/.env",
+        "./**/.env.*",
+        "./**/GoogleService-Info.plist",
+        "./**/google-services.json"
+      ]
+    }
+  }
+}

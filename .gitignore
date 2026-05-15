@@ -1,0 +1,15 @@
+# Sub-repositories (managed independently)
+quiz_buzz_flutter/
+quiz_buzz_cdk/
+
+# Per-machine local settings (must not be shared across PCs)
+.claude/settings.local.json
+.codex/settings.local.json
+.cursor/settings.local.json
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
