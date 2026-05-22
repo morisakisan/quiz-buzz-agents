@@ -1,9 +1,47 @@
 # QuizBuzz オーケストレーター
 
+## プロダクト概要
+
+**クイズBuzz** = ユーザー投稿型クイズ SNS モバイルアプリ。
+
+- **コンセプト**: 単体クイズ（1問）＋ Round（複数問セット）を、TikTok 風無限スクロールフィードで消費
+- **ターゲット**: 日本・英語圏（多言語対応）
+- **ステータス**: MVP リリース済み、v1.5 進行中（画像添付 / 公式キャラ / プロフィールアイコン等を継続追加）
+- **マネタイズ**: AdMob 広告 + サブスクリプション
+
 ## リポジトリ構成
 
 - `quiz-buzz-flutter/` → Flutter アプリ。配下の CLAUDE.md を必ず読むこと
 - `quiz-buzz-cdk/` → AWS バックエンド。配下の CLAUDE.md を必ず読むこと
+
+## 技術スタック
+
+**Flutter (`quiz-buzz-flutter/`)**
+- Dart 3, Material Design 3
+- 状態管理: Riverpod
+- FVM で Flutter バージョン固定
+- 連携: AWS AppSync (GraphQL), Cognito, S3/CloudFront, Firebase Analytics
+
+**CDK (`quiz-buzz-cdk/`)**
+- TypeScript（AWS CDK v2）
+- AWS AppSync（GraphQL、Pipeline Resolver 多用）
+- AWS Cognito（認証、ゲストモード対応）
+- Amazon DynamoDB（シングルテーブル設計 + GSI）
+- AWS Lambda（Resolver、presigned URL 生成 等）
+- S3 + CloudFront（画像配信。アバター / クイズ画像 / Round Cover 等）
+
+**デザイン**
+- Figma / Figma Make（AI 生成）
+
+**バージョン同期**
+- Flutter と CDK のリリースタグは同じ `vX.Y.Z` で揃える
+
+## 開発フェーズ・KPI
+
+- 現在: MVP リリース後、機能拡充フェーズ（v1.5）
+- 1ヶ月: install 1K-5K / DAU 100-500
+- 3ヶ月: install 10K-50K / 月次収益 \$500-2,000
+- 6ヶ月: 海外比率 50%以上 / 月次収益 \$2,000-10,000
 
 ## 並列実行ルール
 
@@ -34,7 +72,16 @@ git config --unset credential.helper
 - 両 Skill の結果を確認し、Critical / High の指摘があれば修正コミットを当該ブランチに push してから人間にマージを委ねる
 - PR マージは絶対にしない（人間のみ）
 
+## 機密データ取り扱い
+
+- API キー、トークン、認証情報、`.env` の値などをチャットや PR 本文に出力しない
+- 伏字（`****` 等）に頼らない。デフォルトは **「キー名と件数のみ報告し、値は出さない」**
+  - 例: 「`AWS_ACCESS_KEY_ID` を含む 3 件を確認した」と報告。値は記載しない
+- 機密ファイル (`.env`, `**/GoogleService-Info.plist`, `**/google-services.json`, `~/.ssh/**`, `~/.aws/**` 等) は `.claude/settings.json` の deny で物理的に Read が止められている。行動規範としても同じ姿勢を取る
+
 ## Notion MCP の活用
 
 - タスク URL が渡されたら必ず fetch して仕様を確認
-- 要件定義書 URL: https://www.notion.so/30527a7e5ae9801f98a2c52b9e0f8f32
+- 要件定義書（ハブ）: https://www.notion.so/30527a7e5ae9801f98a2c52b9e0f8f32
+  - 配下に分割ドキュメント (00_overview / 01_features / 02_ui_ux / 03_database / 04_api / 05_infrastructure / 06_authentication / 07_monetization / 08_multilingual / 09_development_plan / 10_build_configuration / 11_admin_dashboard / 12_categories_and_tags) あり、トピックに応じて適宜 fetch
+  - 要件定義書ページ末尾に **アイデアバックログ** と **QuizBuzz タスクボード** DB あり
