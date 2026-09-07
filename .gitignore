@@ -1,4 +1,8 @@
 # Sub-repositories (managed independently)
+# 端末によってディレクトリ名が異なる（Mac mini はハイフン、MacBook はアンダースコア）。
+# 統一するまでは両方を無視しておく。揃ったら不要な方を消す。
+quiz-buzz-flutter/
+quiz-buzz-cdk/
 quiz_buzz_flutter/
 quiz_buzz_cdk/
 
@@ -6,6 +10,8 @@ quiz_buzz_cdk/
 .claude/settings.local.json
 .codex/settings.local.json
 .cursor/settings.local.json
+# launch.json はサブリポジトリへの相対パスを直書きするため端末依存になる
+.claude/launch.json
 
 # OS / editor noise
 .DS_Store
