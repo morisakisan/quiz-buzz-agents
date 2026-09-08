@@ -1,10 +1,9 @@
 # Sub-repositories (managed independently)
-# 端末によってディレクトリ名が異なる（Mac mini はハイフン、MacBook はアンダースコア）。
-# 統一するまでは両方を無視しておく。揃ったら不要な方を消す。
+# quiz-buzz-web は GitHub 上では morisakisan.github.io という名前。
+# GitHub Pages がドメインのルートに配信する条件がその名前のため変更できない。
 quiz-buzz-flutter/
 quiz-buzz-cdk/
-quiz_buzz_flutter/
-quiz_buzz_cdk/
+quiz-buzz-web/
 
 # Per-machine local settings (must not be shared across PCs)
 .claude/settings.local.json
