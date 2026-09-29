@@ -21,7 +21,7 @@
 **Flutter (`quiz-buzz-flutter/`)**
 - Dart 3, Material Design 3
 - 状態管理: Riverpod
-- FVM で Flutter バージョン固定
+- Flutter 3.41.1（`ios/ci_scripts/ci_post_clone.sh` と `.github/workflows/ci.yml` で固定。FVM は使っていない）
 - 連携: AWS AppSync (GraphQL), Cognito, S3/CloudFront, Firebase Analytics
 
 **CDK (`quiz-buzz-cdk/`)**
